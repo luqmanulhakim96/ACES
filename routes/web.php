@@ -194,6 +194,8 @@ Route::middleware('student')->group(function () {
 
 
     //Others
+    Route::get('/admin/others/user-list/progress', [App\Http\Controllers\AdminController::class, 'viewStudentProgress'])->name('admin.others.user-list.progress');
+
     Route::get('/admin/others/user-list/list', [App\Http\Controllers\AdminController::class, 'viewUserList'])->name('admin.others.user-list.list');
 
     Route::get('/admin/others/user-list/edit/{id}', [App\Http\Controllers\AdminController::class, 'editUserList'])->name('admin.others.user-list.edit');

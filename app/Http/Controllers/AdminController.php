@@ -289,6 +289,37 @@ class AdminController extends Controller
         return view('admin.others.feedback.list', compact('feedback'));
     }
 
+    public function viewStudentProgress()
+    {
+
+        $users = DB::table('users')
+            ->select(
+                'users.id',
+                'users.name',
+                'users.email',
+                'users.ic_number',
+                'users.state',
+                'users.district',
+                'users.school',
+                'users.lesson_progress',
+                'users.quiz_progress',
+                'users.game_progress',
+                'students_lessons.lesson_id',
+                'students_quizes.quiz_id',
+                'students_quizes.result_status',
+                'students_games.game_id'
+            )
+            ->join("students", "students.user_id", "=", "users.id")
+            ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
+            ->leftJoin("students_lessons", "students_lessons.student_id", "=", "students.id")
+            ->leftJoin("students_quizes", "students_quizes.student_id", "=", "students.id")
+            ->get();
+
+        // dd($users);
+        return view('admin.others.user-list.progress', compact('users'));
+
+    }
+
     public function viewGraph()
     {
         $student_active = User::where('is_student', 1)->where('is_active', 1)->count();
