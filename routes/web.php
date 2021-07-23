@@ -194,7 +194,11 @@ Route::middleware('student')->group(function () {
 
 
     //Others
-    Route::get('/admin/others/user-list/progress', [App\Http\Controllers\AdminController::class, 'viewStudentProgress'])->name('admin.others.user-list.progress');
+    Route::get('/admin/others/user-list/progress-lesson', [App\Http\Controllers\AdminController::class, 'viewStudentLessonProgress'])->name('admin.others.user-list.progress-lesson');
+
+    Route::get('/admin/others/user-list/progress-quiz', [App\Http\Controllers\AdminController::class, 'viewStudentQuizProgress'])->name('admin.others.user-list.progress-quiz');
+
+    Route::get('/admin/others/user-list/progress-game', [App\Http\Controllers\AdminController::class, 'viewStudentGameProgress'])->name('admin.others.user-list.progress-game');
 
     Route::get('/admin/others/user-list/list', [App\Http\Controllers\AdminController::class, 'viewUserList'])->name('admin.others.user-list.list');
 

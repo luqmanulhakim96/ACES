@@ -218,8 +218,21 @@
                                     </li>
 
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="{{ route('admin.others.user-list.progress') }}"><i
-                                                class="fa fa-users" aria-hidden="true"></i>Users Progress</a>
+                                        <a class="nav-link"
+                                            href="{{ route('admin.others.user-list.progress-lesson') }}"><i
+                                                class="fa fa-users" aria-hidden="true"></i>Users Progress <br> Lesson</a>
+                                    </li>
+
+                                    <li class="nav-item ">
+                                        <a class="nav-link"
+                                            href="{{ route('admin.others.user-list.progress-quiz') }}"><i
+                                                class="fa fa-users" aria-hidden="true"></i>Users Progress <br> Quiz</a>
+                                    </li>
+
+                                    <li class="nav-item ">
+                                        <a class="nav-link"
+                                            href="{{ route('admin.others.user-list.progress-game') }}"><i
+                                                class="fa fa-users" aria-hidden="true"></i>Users Progress  <br> Game</a>
                                     </li>
 
                                     <li class="nav-item ">

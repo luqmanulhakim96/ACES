@@ -289,7 +289,7 @@ class AdminController extends Controller
         return view('admin.others.feedback.list', compact('feedback'));
     }
 
-    public function viewStudentProgress()
+    public function viewStudentLessonProgress()
     {
 
         $users = DB::table('users')
@@ -302,22 +302,88 @@ class AdminController extends Controller
                 'users.district',
                 'users.school',
                 'users.lesson_progress',
-                'users.quiz_progress',
-                'users.game_progress',
                 'students_lessons.lesson_id',
-                'students_quizes.quiz_id',
-                'students_quizes.result_status',
-                'students_games.game_id'
             )
+            ->distinct('students_lessons.lesson_id')
             ->join("students", "students.user_id", "=", "users.id")
-            ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
             ->leftJoin("students_lessons", "students_lessons.student_id", "=", "students.id")
+            ->paginate(100);
+
+        // dd($users);
+        return view('admin.others.user-list.progress-lesson', compact('users'));
+
+    }
+
+    public function viewStudentQuizProgress()
+    {
+
+        // $users = DB::table('users')
+        //     ->select(
+        //         'users.id',
+        //         'users.name',
+        //         'users.email',
+        //         'users.ic_number',
+        //         'users.state',
+        //         'users.district',
+        //         'users.school',
+        //         'users.lesson_progress',
+        //         'users.quiz_progress',
+        //         'users.game_progress',
+        //         'students_lessons.lesson_id',
+        //         'students_quizes.quiz_id',
+        //         'students_quizes.result_status',
+        //         'students_games.game_id'
+        //     )
+        //     ->join("students", "students.user_id", "=", "users.id")
+        //     ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
+        //     ->leftJoin("students_lessons", "students_lessons.student_id", "=", "students.id")
+        //     ->leftJoin("students_quizes", "students_quizes.student_id", "=", "students.id")
+        //     ->paginate(100);
+
+        $users = DB::table('users')
+        ->select(
+            'users.id',
+            'users.name',
+            'users.email',
+            'users.ic_number',
+            'users.state',
+            'users.district',
+            'users.school',
+            'users.quiz_progress',
+            'students_quizes.quiz_id',
+            'students_quizes.result_status',
+        )
+            ->distinct('students_quizes.quiz_id')
+            ->join("students", "students.user_id", "=", "users.id")
             ->leftJoin("students_quizes", "students_quizes.student_id", "=", "students.id")
             ->paginate(100);
 
         // dd($users);
-        return view('admin.others.user-list.progress', compact('users'));
+        return view('admin.others.user-list.progress-quiz', compact('users'));
+    }
 
+    public function viewStudentGameProgress()
+    {
+
+        $users = DB::table('users')
+        ->select(
+            'users.id',
+            'users.name',
+            'users.email',
+            'users.ic_number',
+            'users.state',
+            'users.district',
+            'users.school',
+            'users.game_progress',
+            'students_games.game_id',
+        )
+            ->distinct('students_games.game_id')
+            ->join("students", "students.user_id", "=", "users.id")
+            ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
+            ->paginate(100);
+
+        // dd($users);
+        return view('admin.others.user-list.progress-game', compact('users'));
     }
 
     public function viewGraph()
