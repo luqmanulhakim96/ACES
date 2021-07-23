@@ -307,7 +307,7 @@ class AdminController extends Controller
             ->distinct('students_lessons.lesson_id')
             ->join("students", "students.user_id", "=", "users.id")
             ->leftJoin("students_lessons", "students_lessons.student_id", "=", "students.id")
-            ->paginate(100);
+            ->get();
 
         // dd($users);
         return view('admin.others.user-list.progress-lesson', compact('users'));
@@ -356,7 +356,7 @@ class AdminController extends Controller
             ->distinct('students_quizes.quiz_id')
             ->join("students", "students.user_id", "=", "users.id")
             ->leftJoin("students_quizes", "students_quizes.student_id", "=", "students.id")
-            ->paginate(100);
+            ->get();
 
         // dd($users);
         return view('admin.others.user-list.progress-quiz', compact('users'));
@@ -380,7 +380,7 @@ class AdminController extends Controller
             ->distinct('students_games.game_id')
             ->join("students", "students.user_id", "=", "users.id")
             ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
-            ->paginate(100);
+            ->get();
 
         // dd($users);
         return view('admin.others.user-list.progress-game', compact('users'));
