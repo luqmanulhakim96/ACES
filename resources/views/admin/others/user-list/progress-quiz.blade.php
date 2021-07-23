@@ -28,7 +28,7 @@
             <div class="card" style="padding: 10px;">
 
                 <div style="padding: 5px;"></div>
-                <h2 class="card-header" style="text-align: center;"><i class="fa fa-users" aria-hidden="true"></i>Users List
+                <h2 class="card-header" style="text-align: center;"><i class="fa fa-users" aria-hidden="true"></i>Users Quiz Progress List
                 </h2>
                 <div class="p-0 card-body">
                     <div style="padding: 10px;"></div>
@@ -43,13 +43,9 @@
                                     <th>SCHOOL</th>
                                     <th>STATE</th>
                                     <th>DISTRICT</th>
-                                    <th>LESSON PROGRESS (%)</th>
                                     <th>QUIZ PROGRESS (%)</th>
-                                    <th>GAME PROGRESS (%)</th>
-                                    <th>LESSON ID</th>
                                     <th>QUIZ ID</th>
                                     <th>QUIZ RESULT</th>
-                                    <th>GAME ID</th>
                                 </tr>
                             </thead>
                             <tbody style="text-align: center;">
@@ -61,13 +57,9 @@
                                         <td>{{ $data->school }}</td>
                                         <td>{{ $data->state }}</td>
                                         <td>{{ $data->district }}</td>
-                                        <td>{{ $data->lesson_progress }}</td>
                                         <td>{{ $data->quiz_progress }}</td>
-                                        <td>{{ $data->game_progress }}</td>
-                                        <td>{{ $data->lesson_id ?? '-'}}</td>
                                         <td>{{ $data->quiz_id ?? '-'}}</td>
                                         <td>{{ $data->result_status ?? '-'}}</td>
-                                        <td>{{ $data->game_id ?? '-'}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
