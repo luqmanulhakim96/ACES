@@ -313,7 +313,7 @@ class AdminController extends Controller
             ->leftJoin("students_games", "students_games.student_id", "=", "students.id")
             ->leftJoin("students_lessons", "students_lessons.student_id", "=", "students.id")
             ->leftJoin("students_quizes", "students_quizes.student_id", "=", "students.id")
-            ->get();
+            ->paginate(100);
 
         // dd($users);
         return view('admin.others.user-list.progress', compact('users'));
