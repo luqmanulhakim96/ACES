@@ -88,10 +88,12 @@
                                             <td><span class="badge badge-pill badge-info">ECERDC Personnel</span></td>
                                         @endif
 
-                                        @if ($data->is_active == 1)
+                                        @if ($data->is_approved == 0)
+                                            <td><span class="badge badge-pill badge-danger">Not Approved</span></td>
+                                        @elseif ($data->is_active == 1)
                                             <td><span class="badge badge-pill badge-success">Active</span></td>
                                         @else
-                                            <td><span class="badge badge-pill badge-danger">Not Active</span></td>
+                                            <td><span class="badge badge-pill badge-warning">Not Active</span></td>
                                         @endif
 
                                         @if (!auth()->user()->is_ecerdb_personnel)
