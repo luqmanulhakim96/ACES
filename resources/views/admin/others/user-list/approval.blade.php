@@ -28,7 +28,7 @@
             <div class="card" style="padding: 10px;">
 
                 <div style="padding: 5px;"></div>
-                <h2 class="card-header" style="text-align: center;"><i class="fa fa-users" aria-hidden="true"></i>Users List
+                <h2 class="card-header" style="text-align: center;"><i class="fa fa-users" aria-hidden="true"></i>Users' Approval List
                 </h2>
                 <div class="p-0 card-body">
                     <div style="padding: 10px;"></div>
